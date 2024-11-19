@@ -1,0 +1,81 @@
+[
+  {
+    "title": "1. Installer Node.js",
+    "description": "Pour installer Node.js dans Termux, exécutez les commandes suivantes :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg update && pkg upgrade\npkg install npm\npkg install nodejs-lts\nnode -v\nnpm -v"
+      }
+    ]
+  },
+  {
+    "title": "2. Créer une application React avec Vite",
+    "description": "Exécutez les commandes suivantes pour configurer une nouvelle application React avec Vite :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "npx create-vite@latest my-react-app --template react\ncd my-react-app\nnpm install"
+      }
+    ]
+  },
+  {
+    "title": "3. Installer les dépendances",
+    "description": "Installez les dépendances nécessaires :",
+    "codeBlocks": [
+      {
+        "label": "React Router DOM",
+        "language": "bash",
+        "code": "npm install react-router-dom"
+      },
+      {
+        "label": "Material-UI (MUI)",
+        "language": "bash",
+        "code": "npm install @mui/material @emotion/react @emotion/styled @mui/icons-material"
+      },
+      {
+        "label": "Redux Toolkit",
+        "language": "bash",
+        "code": "npm install @reduxjs/toolkit react-redux"
+      }
+    ]
+  },
+  {
+    "title": "4. Configuration de Redux",
+    "description": "Créez un store Redux et configurez-le :",
+    "codeBlocks": [
+      {
+        "label": "store.js",
+        "language": "javascript",
+        "code": "import { configureStore, createSlice } from \"@reduxjs/toolkit\";\n\nconst counterSlice = createSlice({\n  name: \"counter\",\n  initialState: { value: 0 },\n  reducers: {\n    increment: (state) => {\n      state.value += 1;\n    },\n    decrement: (state) => {\n      state.value -= 1;\n    }\n  }\n});\n\nexport const { increment, decrement } = counterSlice.actions;\n\nconst store = configureStore({\n  reducer: {\n    counter: counterSlice.reducer\n  }\n});\n\nexport default store;"
+      },
+      {
+        "label": "main.jsx",
+        "language": "jsx",
+        "code": "import React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport { Provider } from \"react-redux\";\nimport App from \"./App\";\nimport store from \"./store\";\n\nReactDOM.createRoot(document.getElementById(\"root\")).render(\n  <Provider store={store}>\n    <App />\n  </Provider>\n);"
+      }
+    ]
+  },
+  {
+    "title": "5. Utiliser Redux dans les composants",
+    "description": "Voici un exemple d'utilisation de Redux dans votre composant App :",
+    "codeBlocks": [
+      {
+        "label": "App.jsx",
+        "language": "jsx",
+        "code": "import React from \"react\";\nimport { useSelector, useDispatch } from \"react-redux\";\nimport { increment, decrement } from \"./store\";\n\nfunction App() {\n  const count = useSelector((state) => state.counter.value);\n  const dispatch = useDispatch();\n\n  return (\n    <div style={{ textAlign: \"center\", marginTop: \"50px\" }}>\n      <h1>Compteur avec Redux</h1>\n      <p>Compteur : {count}</p>\n      <button onClick={() => dispatch(increment())}>Incrémenter</button>\n      <button onClick={() => dispatch(decrement())}>Décrémenter</button>\n    </div>\n  );\n}\n\nexport default App;"
+      }
+    ]
+  },
+  {
+    "title": "6. Démarrer le serveur de développement",
+    "description": "Exécutez la commande suivante pour démarrer le serveur :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "npm run dev"
+      }
+    ],
+    "additionalInfo": "Votre application sera disponible à l'adresse suivante : http://localhost:5173"
+  }
+]
