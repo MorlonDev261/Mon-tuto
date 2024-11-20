@@ -20,6 +20,34 @@ body {
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    .outils {
+       display: none;
+    }
+    .App-list {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .dw-app {
+        width: 100%;
+        height: 130px;
+        text-align: center;
+        max-width: 100px;
+    }
+    .dw-app img {
+        display: block;
+        width: 100%;
+        height: 80%;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+    }
+    .dw-app .title {
+        color: #000;
+        font-size: 12px;
+        font-weight: bold;
+    }
     pre {
       background: #f4f4f4;
       padding: 10px;
@@ -28,12 +56,12 @@ body {
       position: relative;
     }
     .section {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     button.copy-btn {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 0;
+      right: 0;
       background-color: #4CAF50;
       color: white;
       border: none;
@@ -47,4 +75,70 @@ body {
     }
     .code-block {
       position: relative;
+    }
+
+    .skeleton-container {
+        margin-top: 25px;
+    }
+
+    .skeleton {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .skeleton-title,
+    .skeleton-text,
+    .skeleton-button, .sk-title, .sk-app {
+      background: #e0e0e0;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    .skeleton-app {
+        margin-bottom: 50px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .sk-list-app {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+     }
+
+    .sk-app {
+        height: 100px;
+        border-radius: 8px;
+        width: 100px;
+    }
+
+    .skeleton-title{
+      width: 80%;
+      height: 20px;
+    }
+
+    .skeleton-text, .sk-title {
+      width: 100%;
+      height: 15px;
+    }
+
+    .skeleton-button {
+      width: 100%;
+      height: 60px;
+    }
+
+    @keyframes pulse {
+      0% {
+        background-color: #e0e0e0;
+      }
+      50% {
+        background-color: #f5f5f5;
+      }
+      100% {
+        background-color: #e0e0e0;
+      }
     }
