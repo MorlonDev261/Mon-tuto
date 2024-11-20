@@ -1,0 +1,78 @@
+[
+  {
+    "title": "1. Installer KS Web Server",
+    "description": "KS Web Server est une application Android qui combine un serveur Apache, PHP, et MySQL. Installez l'application depuis le Play Store ou via un APK.",
+    "additionalInfo": "Vous pouvez télécharger KS Web Server depuis le [Play Store](https://play.google.com/store) ou rechercher un APK fiable en ligne."
+  },
+  {
+    "title": "2. Configurer le répertoire racine",
+    "description": "Par défaut, le répertoire racine de KS Web est généralement `/mnt/sdcard/htdocs`. Configurez vos fichiers projet ici :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "termux-setup-storage\ncd /storage/emulated/0/htdocs\nmkdir mon-projet\ncd mon-projet\ntouch index.php"
+      }
+    ],
+    "additionalInfo": "Vous pouvez placer vos fichiers PHP, HTML, CSS, et JS directement dans ce répertoire pour qu'ils soient accessibles via le serveur web."
+  },
+  {
+    "title": "3. Démarrer KS Web Server",
+    "description": "Ouvrez l'application KS Web Server et démarrez le serveur. Notez l'adresse IP et le port (par exemple, `http://192.168.1.100:8080`).",
+    "additionalInfo": "Vous pouvez accéder à votre projet via un navigateur en utilisant l'URL fournie."
+  },
+  {
+    "title": "4. Configurer MySQL avec KS Web",
+    "description": "Utilisez phpMyAdmin, intégré dans KS Web Server, pour gérer vos bases de données MySQL.",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "http://192.168.1.100:8080/phpmyadmin"
+      }
+    ],
+    "additionalInfo": "Les identifiants par défaut sont généralement `root` pour l'utilisateur et un mot de passe vide. Modifiez-les dans la configuration si nécessaire."
+  },
+  {
+    "title": "5. Tester un projet PHP",
+    "description": "Créez un fichier PHP pour tester votre configuration :",
+    "codeBlocks": [
+      {
+        "language": "php",
+        "code": "<?php\n  echo \"Hello, KS Web Server!\";\n  phpinfo();\n?>"
+      }
+    ],
+    "additionalInfo": "Placez ce fichier dans le dossier `/htdocs/mon-projet` et accédez-y via l'URL `http://192.168.1.100:8080/mon-projet/index.php`."
+  },
+  {
+    "title": "6. Connecter KS Web avec Termux",
+    "description": "Pour une gestion avancée, utilisez Termux pour interagir avec le répertoire racine ou MySQL.",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "cd /storage/emulated/0/htdocs\nnano fichier.php   # Modifier un fichier directement\nsqlite3 database.db # Gérer une base de données SQLite"
+      }
+    ],
+    "additionalInfo": "Avec Termux, vous pouvez combiner l'édition de code et la gestion des fichiers pour plus de flexibilité."
+  },
+  {
+    "title": "7. Configurer des hôtes virtuels (facultatif)",
+    "description": "Pour héberger plusieurs projets, configurez des hôtes virtuels dans le fichier `httpd-vhosts.conf` (si KS Web Server le permet).",
+    "codeBlocks": [
+      {
+        "language": "apache",
+        "code": "<VirtualHost *:8080>\n  DocumentRoot \"/storage/emulated/0/htdocs/projet1\"\n  ServerName projet1.local\n</VirtualHost>\n\n<VirtualHost *:8080>\n  DocumentRoot \"/storage/emulated/0/htdocs/projet2\"\n  ServerName projet2.local\n</VirtualHost>"
+      }
+    ],
+    "additionalInfo": "Vous devrez peut-être modifier le fichier `hosts` de votre appareil pour associer des noms de domaine locaux comme `projet1.local`."
+  },
+  {
+    "title": "8. Conseils pour le développement",
+    "description": "Pour une expérience optimale avec KS Web Server, suivez ces conseils :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg install nano vim # Utilisez un éditeur pour modifier rapidement vos fichiers.\nscp fichier.php user@server:/chemin # Transférez des fichiers entre appareils via SSH."
+      }
+    ],
+    "additionalInfo": "KS Web Server est idéal pour le développement local, mais pour la production, envisagez un vrai serveur (ex. VPS)."
+  }
+]
