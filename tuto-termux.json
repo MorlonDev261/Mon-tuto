@@ -1,0 +1,76 @@
+[
+  {
+    "title": "1. Préparation de Termux",
+    "description": "Avant de commencer, mettez à jour Termux et accordez-lui les autorisations nécessaires :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg update && pkg upgrade\ntouch ~/.hushlogin\ntermux-setup-storage"
+      }
+    ],
+    "additionalInfo": "La commande `termux-setup-storage` permet à Termux d'accéder au système de fichiers de votre appareil, notamment au dossier `storage`."
+  },
+  {
+    "title": "2. Commandes de base pour naviguer",
+    "description": "Voici les commandes principales pour naviguer dans le système de fichiers de Termux :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pwd    # Affiche le répertoire actuel\nls     # Liste les fichiers et dossiers\ncd     # Change de répertoire\nmkdir  # Crée un nouveau dossier\nrm     # Supprime un fichier (ajouter -r pour les dossiers)\ncp     # Copie des fichiers ou dossiers\nmv     # Déplace ou renomme un fichier/dossier"
+      }
+    ]
+  },
+  {
+    "title": "3. Installer un éditeur de texte",
+    "description": "Installez Nano ou Vim pour modifier vos fichiers directement dans Termux :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg install nano     # Editeur simple\npkg install vim      # Editeur avancé"
+      }
+    ]
+  },
+  {
+    "title": "4. Connexion et interaction avec FTP",
+    "description": "Installez un client FTP et connectez-vous à un serveur :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg install lftp      # Installe lftp, un client FTP\nlftp ftp://username:password@ftp.server.com"
+      }
+    ],
+    "additionalInfo": "Une fois connecté, utilisez les commandes comme `ls`, `get`, et `put` pour interagir avec le serveur."
+  },
+  {
+    "title": "5. Installer Git et se connecter à GitHub",
+    "description": "Utilisez Git pour gérer votre code source et interagir avec GitHub :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg install git      # Installe Git\ngit config --global user.name \"VotreNom\"\ngit config --global user.email \"VotreEmail\"\nssh-keygen -t ed25519 -C \"VotreEmail\"   # Génère une clé SSH\ncat ~/.ssh/id_ed25519.pub               # Affiche la clé publique"
+      }
+    ],
+    "additionalInfo": "Ajoutez la clé SSH à votre compte GitHub pour autoriser les connexions sécurisées."
+  },
+  {
+    "title": "6. Cloner et gérer un dépôt GitHub",
+    "description": "Voici comment cloner un dépôt et gérer le contrôle de version :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "git clone git@github.com:NomUtilisateur/NomDepot.git\ncd NomDepot\ngit add .\ngit commit -m \"Votre message de commit\"\ngit push origin main"
+      }
+    ],
+    "additionalInfo": "Assurez-vous d'avoir configuré une clé SSH pour `git clone` si le dépôt est privé."
+  },
+  {
+    "title": "7. Gérer vos fichiers compressés",
+    "description": "Installez les outils pour manipuler les fichiers ZIP ou TAR :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "pkg install zip unzip        # Pour les fichiers ZIP\npkg install tar gzip bzip2   # Pour les fichiers TAR et GZ\ntar -xvf fichier.tar         # Décompresse un fichier TAR"
+      }
+    ]
+  }
+]
