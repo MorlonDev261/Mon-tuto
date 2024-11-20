@@ -1,0 +1,89 @@
+[
+  {
+    "title": "1. Installer TrebEdit",
+    "description": "TrebEdit est une application Android qui permet de développer et d'exécuter des projets web. Téléchargez-la depuis le Play Store.",
+    "additionalInfo": "Vous pouvez télécharger TrebEdit depuis le [Play Store](https://play.google.com/store) ou via un APK fiable."
+  },
+  {
+    "title": "2. Créer un nouveau projet",
+    "description": "Pour commencer, créez un nouveau projet dans TrebEdit :",
+    "codeBlocks": [
+      {
+        "language": "none",
+        "code": "1. Ouvrez TrebEdit.\n2. Cliquez sur le bouton '+' pour créer un nouveau projet.\n3. Donnez un nom à votre projet et validez."
+      }
+    ],
+    "additionalInfo": "Le projet est automatiquement créé avec un fichier `index.html`. Vous pouvez ajouter d'autres fichiers comme `style.css` ou `script.js`."
+  },
+  {
+    "title": "3. Structure d'un projet web simple",
+    "description": "Voici un exemple de projet web de base :",
+    "codeBlocks": [
+      {
+        "language": "html",
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Mon premier projet</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <h1>Hello, TrebEdit!</h1>\n  <p>Ceci est une page web simple.</p>\n  <script src=\"script.js\"></script>\n</body>\n</html>"
+      },
+      {
+        "language": "css",
+        "code": "/* style.css */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  color: #333;\n  text-align: center;\n  padding: 20px;\n}"
+      },
+      {
+        "language": "javascript",
+        "code": "// script.js\nconsole.log('Bienvenue sur TrebEdit !');"
+      }
+    ]
+  },
+  {
+    "title": "4. Visualiser votre projet",
+    "description": "TrebEdit dispose d'un navigateur intégré pour tester vos projets :",
+    "codeBlocks": [
+      {
+        "language": "none",
+        "code": "1. Cliquez sur l'icône de navigation dans la barre supérieure.\n2. Sélectionnez le fichier `index.html` pour l'ouvrir.\n3. La page s'ouvrira dans le navigateur intégré de TrebEdit."
+      }
+    ]
+  },
+  {
+    "title": "5. Ajouter et gérer des fichiers",
+    "description": "Ajoutez des fichiers supplémentaires à votre projet pour structurer votre code :",
+    "codeBlocks": [
+      {
+        "language": "none",
+        "code": "1. Appuyez sur le bouton '+' dans le gestionnaire de fichiers.\n2. Choisissez 'Nouveau fichier' ou 'Nouveau dossier'.\n3. Entrez un nom, par exemple `style.css` ou `scripts`."
+      }
+    ],
+    "additionalInfo": "Les fichiers peuvent être organisés dans des dossiers pour une meilleure structure."
+  },
+  {
+    "title": "6. Travailler avec PHP et MySQL",
+    "description": "Pour les projets PHP, configurez un serveur distant ou local (comme KS Web Server) :",
+    "codeBlocks": [
+      {
+        "language": "php",
+        "code": "<?php\n  echo 'Hello, PHP depuis TrebEdit!';\n?>"
+      }
+    ],
+    "additionalInfo": "Vous pouvez utiliser KS Web Server pour exécuter des fichiers PHP localement. Configurez le chemin de votre projet dans TrebEdit pour pointer vers `/htdocs`."
+  },
+  {
+    "title": "7. Travailler avec GitHub",
+    "description": "Intégrez votre projet TrebEdit avec GitHub pour le contrôle de version :",
+    "codeBlocks": [
+      {
+        "language": "bash",
+        "code": "1. Installez Termux pour utiliser Git.\n2. Configurez Git avec votre compte :\n   git config --global user.name \"VotreNom\"\n   git config --global user.email \"VotreEmail\"\n3. Clonez un dépôt GitHub :\n   git clone https://github.com/VotreNom/VotreDepot.git\n4. Copiez vos fichiers TrebEdit dans le dossier cloné.\n5. Ajoutez, validez et poussez vos modifications :\n   git add .\n   git commit -m \"Ajout depuis TrebEdit\"\n   git push origin main"
+      }
+    ],
+    "additionalInfo": "Assurez-vous que Termux et TrebEdit partagent le même répertoire de fichiers pour simplifier les échanges."
+  },
+  {
+    "title": "8. Conseils pour le développement avancé",
+    "description": "Voici quelques astuces pour améliorer votre expérience de développement avec TrebEdit :",
+    "codeBlocks": [
+      {
+        "language": "none",
+        "code": "1. Activez le mode sombre dans les paramètres pour réduire la fatigue visuelle.\n2. Utilisez les fonctionnalités de coloration syntaxique pour repérer facilement les erreurs.\n3. Sauvegardez régulièrement vos fichiers pour éviter toute perte de données."
+      }
+    ]
+  }
+]
