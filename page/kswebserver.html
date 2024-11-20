@@ -50,32 +50,34 @@
 </div>
 
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const container = document.getElementById("tutorial-container");
-      const spinner = document.querySelector(".skeleton-container");
-      const outils = document.querySelector(".outils");
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById("tutorial-container");
+    const spinner = document.querySelector(".skeleton-container");
+    const outils = document.querySelector(".outils");
 
-      // Afficher le spinner pendant le chargement
-      spinner.style.display = "block";
+    // Afficher le spinner pendant le chargement
+    spinner.style.display = "block";
 
-      // Créer une promesse pour forcer un délai d'attente minimum de 1.3s
-      const minWait = new Promise(resolve => setTimeout(resolve, 1300));
+    // Créer une promesse pour forcer un délai d'attente minimum de 1.3s
+    const minWait = new Promise(resolve => setTimeout(resolve, 1300));
 
-      // Charger les données depuis le fichier tuto.json
-      const response = await fetch("tuto-kswebserver.json");
-      const sections = await response.json();
+    // Charger les données depuis le fichier index.json
+    const response = await fetch("kswebserver.json");
+    const sections = await response.json();
 
-      // Attendre le délai d'attente minimum et les données
-      await minWait;
+    // Attendre le délai d'attente minimum et les données
+    await minWait;
 
-      // Générer dynamiquement le contenu
-      sections.forEach((section) => {
-        const sectionElement = document.createElement("div");
-        sectionElement.classList.add("section");
+    // Générer dynamiquement le contenu
+    sections.forEach((section) => {
+      const sectionElement = document.createElement("div");
+      sectionElement.classList.add("section");
 
-        let codeContent = "";
+      let codeContent = "";
 
+      // Vérifier si "codeBlocks" existe et n'est pas vide
+      if (section.codeBlocks && section.codeBlocks.length > 0) {
         if (section.codeBlocks.length > 1 && section.liste === true) {
           // Si plusieurs blocs de code et la clé "liste" est true, générer une liste ul
           codeContent = `
@@ -113,47 +115,49 @@
             )
             .join("");
         }
+      }
 
-        sectionElement.innerHTML = `
-          <h2>${section.title}</h2>
-          <p>${section.description}</p>
-          ${codeContent}
-        `;
+      sectionElement.innerHTML = `
+        <h2>${section.title}</h2>
+        <p>${section.description}</p>
+        ${codeContent}
+      `;
 
-        container.appendChild(sectionElement);
-      });
-
-      // Masquer le spinner une fois le contenu chargé
-      spinner.style.display = "none";
-      outils.style.display = "block";
-
-      // Appliquer la coloration syntaxique
-      Prism.highlightAll();
+      container.appendChild(sectionElement);
     });
 
-    // Fonction pour copier le contenu du code
-    function copyCode(button) {
-      const codeElement = button.previousElementSibling;
-      const textToCopy = codeElement.textContent || codeElement.innerText;
+    // Masquer le spinner une fois le contenu chargé
+    spinner.style.display = "none";
+    outils.style.display = "block";
 
-      const tempInput = document.createElement("textarea");
-      document.body.appendChild(tempInput);
-      tempInput.value = textToCopy;
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
+    // Appliquer la coloration syntaxique
+    Prism.highlightAll();
+  });
 
-      button.textContent = "Copié!";
-      setTimeout(() => (button.textContent = "Copier"), 1500);
-    }
+  // Fonction pour copier le contenu du code
+  function copyCode(button) {
+    const codeElement = button.previousElementSibling;
+    const textToCopy = codeElement.textContent || codeElement.innerText;
 
-    // Fonction pour échapper les caractères spéciaux dans le code
-    function escapeHTML(str) {
-      return str
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    }
-  </script>
+    const tempInput = document.createElement("textarea");
+    document.body.appendChild(tempInput);
+    tempInput.value = textToCopy;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    button.textContent = "Copié!";
+    setTimeout(() => (button.textContent = "Copier"), 1500);
+  }
+
+  // Fonction pour échapper les caractères spéciaux dans le code
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+</script>
+
 </body>
 </html>
