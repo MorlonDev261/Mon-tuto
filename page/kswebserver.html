@@ -63,7 +63,7 @@
     const minWait = new Promise(resolve => setTimeout(resolve, 1300));
 
     // Charger les données depuis le fichier index.json
-    const response = await fetch("kswebserver.json");
+    const response = await fetch("tuto-kswebserver.json");
     const sections = await response.json();
 
     // Attendre le délai d'attente minimum et les données
