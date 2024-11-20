@@ -90,13 +90,13 @@ body {
 
     .skeleton-title,
     .skeleton-text,
-    .skeleton-button, .sk-title, .sk-app {
+    .skeleton-code, .sk-title, .sk-app {
       background: #e0e0e0;
       animation: pulse 1.5s infinite ease-in-out;
     }
 
     .skeleton-app {
-        margin-bottom: 50px;
+        margin-bottom: 60px;
         display: flex;
         gap: 10px;
         flex-direction: column;
@@ -119,16 +119,22 @@ body {
     .skeleton-title{
       width: 80%;
       height: 20px;
+      margin-bottom: 23px;
     }
 
     .skeleton-text, .sk-title {
       width: 100%;
-      height: 15px;
+      height: 12px;
     }
 
-    .skeleton-button {
+    .skeleton-text-2 {
+        margin-bottom: 15px;
+        width: 45%;
+    }
+
+    .skeleton-code {
       width: 100%;
-      height: 60px;
+      height: 150px;
     }
 
     @keyframes pulse {
