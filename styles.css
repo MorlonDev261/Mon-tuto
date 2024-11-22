@@ -17,6 +17,9 @@ body {
         align-items: center;
         justify-content: space-around;
     }
+    header a {
+        text-decoration: none;
+    }
     .container {
       max-width: 800px;
       margin: 20px auto;
